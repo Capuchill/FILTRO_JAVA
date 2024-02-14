@@ -1,0 +1,257 @@
+[ {
+  "numeroFactura" : 1,
+  "fecha" : "2024-01-15T10:00:00",
+  "cliente" : {
+    "id" : 1,
+    "nombre" : "1001",
+    "apellido" : "Juan",
+    "email" : "Perez",
+    "direccion" : "jperez@gmail.com",
+    "celular" : "Calle 123",
+    "documento" : "31448975",
+    "fullName" : "1001 Juan"
+  },
+  "items" : [ {
+    "cantidad" : 2,
+    "producto" : {
+      "codigo" : 1,
+      "nombre" : "Producto1",
+      "descripcion" : "Descripción del Producto 1",
+      "precioVenta" : 50.0,
+      "precioCompra" : 30.0,
+      "codigoNombre" : "1 Producto1 $ 50,00",
+      "utilidad" : 20.0
+    },
+    "importe" : 100.0
+  }, {
+    "cantidad" : 3,
+    "producto" : {
+      "codigo" : 2,
+      "nombre" : "Producto2",
+      "descripcion" : "Descripción del Producto 2",
+      "precioVenta" : 40.0,
+      "precioCompra" : 25.0,
+      "codigoNombre" : "2 Producto2 $ 40,00",
+      "utilidad" : 15.0
+    },
+    "importe" : 120.0
+  } ],
+  "totalImpuesto" : 245.0,
+  "totalFactura" : 220.0
+}, {
+  "numeroFactura" : 2,
+  "fecha" : "2024-01-16T11:30:00",
+  "cliente" : {
+    "id" : 2,
+    "nombre" : "1002",
+    "apellido" : "Maria",
+    "email" : "Lopez",
+    "direccion" : "mlopez@gmail.com",
+    "celular" : "Avenida 456",
+    "documento" : "31567890",
+    "fullName" : "1002 Maria"
+  },
+  "items" : [ {
+    "cantidad" : 1,
+    "producto" : {
+      "codigo" : 3,
+      "nombre" : "Producto3",
+      "descripcion" : "Descripción del Producto 3",
+      "precioVenta" : 60.0,
+      "precioCompra" : 35.0,
+      "codigoNombre" : "3 Producto3 $ 60,00",
+      "utilidad" : 25.0
+    },
+    "importe" : 60.0
+  }, {
+    "cantidad" : 2,
+    "producto" : {
+      "codigo" : 4,
+      "nombre" : "Producto4",
+      "descripcion" : "Descripción del Producto 4",
+      "precioVenta" : 70.0,
+      "precioCompra" : 45.0,
+      "codigoNombre" : "4 Producto4 $ 70,00",
+      "utilidad" : 25.0
+    },
+    "importe" : 140.0
+  } ],
+  "totalImpuesto" : 225.0,
+  "totalFactura" : 200.0
+}, {
+  "numeroFactura" : 3,
+  "fecha" : "2024-01-17T14:45:00",
+  "cliente" : {
+    "id" : 3,
+    "nombre" : "1003",
+    "apellido" : "Carlos",
+    "email" : "Gomez",
+    "direccion" : "cgomez@gmail.com",
+    "celular" : "Carrera 789",
+    "documento" : "31789012",
+    "fullName" : "1003 Carlos"
+  },
+  "items" : [ {
+    "cantidad" : 1,
+    "producto" : {
+      "codigo" : 5,
+      "nombre" : "Producto5",
+      "descripcion" : "Descripción del Producto 5",
+      "precioVenta" : 55.0,
+      "precioCompra" : 30.0,
+      "codigoNombre" : "5 Producto5 $ 55,00",
+      "utilidad" : 25.0
+    },
+    "importe" : 55.0
+  } ],
+  "totalImpuesto" : 80.0,
+  "totalFactura" : 55.0
+}, {
+  "numeroFactura" : 4,
+  "fecha" : "2024-01-18T09:15:00",
+  "cliente" : {
+    "id" : 4,
+    "nombre" : "1004",
+    "apellido" : "Laura",
+    "email" : "Martinez",
+    "direccion" : "lmartinez@gmail.com",
+    "celular" : "Calle 567",
+    "documento" : "31890123",
+    "fullName" : "1004 Laura"
+  },
+  "items" : [ ],
+  "totalImpuesto" : 25.0,
+  "totalFactura" : 0.0
+}, {
+  "numeroFactura" : 5,
+  "fecha" : "2024-01-19T16:20:00",
+  "cliente" : {
+    "id" : 5,
+    "nombre" : "1005",
+    "apellido" : "Pedro",
+    "email" : "Rodriguez",
+    "direccion" : "prodriguez@gmail.com",
+    "celular" : "Calle 890",
+    "documento" : "31901234",
+    "fullName" : "1005 Pedro"
+  },
+  "items" : [ ],
+  "totalImpuesto" : 25.0,
+  "totalFactura" : 0.0
+}, {
+  "numeroFactura" : 6,
+  "fecha" : "2024-01-23T13:10:00",
+  "cliente" : {
+    "id" : 1,
+    "nombre" : "1001",
+    "apellido" : "Juan",
+    "email" : "Perez",
+    "direccion" : "jperez@gmail.com",
+    "celular" : "Calle 123",
+    "documento" : "31448975",
+    "fullName" : "1001 Juan"
+  },
+  "items" : [ ],
+  "totalImpuesto" : 25.0,
+  "totalFactura" : 0.0
+}, {
+  "numeroFactura" : 7,
+  "fecha" : "2024-01-25T15:30:00",
+  "cliente" : {
+    "id" : 2,
+    "nombre" : "1002",
+    "apellido" : "Maria",
+    "email" : "Lopez",
+    "direccion" : "mlopez@gmail.com",
+    "celular" : "Avenida 456",
+    "documento" : "31567890",
+    "fullName" : "1002 Maria"
+  },
+  "items" : [ ],
+  "totalImpuesto" : 25.0,
+  "totalFactura" : 0.0
+}, {
+  "numeroFactura" : 8,
+  "fecha" : "2024-01-27T18:00:00",
+  "cliente" : {
+    "id" : 3,
+    "nombre" : "1003",
+    "apellido" : "Carlos",
+    "email" : "Gomez",
+    "direccion" : "cgomez@gmail.com",
+    "celular" : "Carrera 789",
+    "documento" : "31789012",
+    "fullName" : "1003 Carlos"
+  },
+  "items" : [ {
+    "cantidad" : 2,
+    "producto" : {
+      "codigo" : 6,
+      "nombre" : "Producto18",
+      "descripcion" : "Descripción del Producto 18",
+      "precioVenta" : 65.0,
+      "precioCompra" : 40.0,
+      "codigoNombre" : "6 Producto18 $ 65,00",
+      "utilidad" : 25.0
+    },
+    "importe" : 130.0
+  } ],
+  "totalImpuesto" : 155.0,
+  "totalFactura" : 130.0
+}, {
+  "numeroFactura" : 9,
+  "fecha" : "2024-01-29T10:45:00",
+  "cliente" : {
+    "id" : 4,
+    "nombre" : "1004",
+    "apellido" : "Laura",
+    "email" : "Martinez",
+    "direccion" : "lmartinez@gmail.com",
+    "celular" : "Calle 567",
+    "documento" : "31890123",
+    "fullName" : "1004 Laura"
+  },
+  "items" : [ {
+    "cantidad" : 3,
+    "producto" : {
+      "codigo" : 7,
+      "nombre" : "Producto19",
+      "descripcion" : "Descripción del Producto 19",
+      "precioVenta" : 80.0,
+      "precioCompra" : 50.0,
+      "codigoNombre" : "7 Producto19 $ 80,00",
+      "utilidad" : 30.0
+    },
+    "importe" : 240.0
+  } ],
+  "totalImpuesto" : 265.0,
+  "totalFactura" : 240.0
+}, {
+  "numeroFactura" : 10,
+  "fecha" : "2024-01-31T12:25:00",
+  "cliente" : {
+    "id" : 5,
+    "nombre" : "1005",
+    "apellido" : "Pedro",
+    "email" : "Rodriguez",
+    "direccion" : "prodriguez@gmail.com",
+    "celular" : "Calle 890",
+    "documento" : "31901234",
+    "fullName" : "1005 Pedro"
+  },
+  "items" : [ {
+    "cantidad" : 1,
+    "producto" : {
+      "codigo" : 8,
+      "nombre" : "Producto20",
+      "descripcion" : "Descripción del Producto 20",
+      "precioVenta" : 75.0,
+      "precioCompra" : 48.0,
+      "codigoNombre" : "8 Producto20 $ 75,00",
+      "utilidad" : 27.0
+    },
+    "importe" : 75.0
+  } ],
+  "totalImpuesto" : 100.0,
+  "totalFactura" : 75.0
+} ]
