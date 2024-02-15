@@ -9,6 +9,10 @@ public interface ServiceCliente {
 
     List<Cliente> listar();
 
+    List<Double> generarReporteMontos();
+
+    List<Cliente> generarReporte();
+
     Cliente porDocumento(String documento)throws ClienteNullException ;
 
     void crear(Cliente producto);

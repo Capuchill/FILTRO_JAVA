@@ -8,11 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.campusland.respository.ReporteProducto;
 import com.campusland.respository.RepositoryProducto;
+import com.campusland.respository.models.Cliente;
 import com.campusland.respository.models.Producto;
 import com.campusland.utils.conexionpersistencia.conexionbdmysql.ConexionBDMysql;
 
-public class RepositoryProductoMysqlImpl implements RepositoryProducto {
+public class RepositoryProductoMysqlImpl implements RepositoryProducto, ReporteProducto{
 
     private Connection getConnection() throws SQLException {
         return ConexionBDMysql.getInstance();
@@ -108,6 +110,46 @@ public class RepositoryProductoMysqlImpl implements RepositoryProducto {
         producto.setPrecioCompra(rs.getDouble("precioCompra"));
         return producto;
 
+    }
+
+    private Producto crearProductoPorNombre(ResultSet rs) throws SQLException {
+        Producto producto = new Producto();
+        producto.setNombre(rs.getString("nombre"));
+        return producto;
+    }
+
+    @Override
+    public List<Producto> reporteProductos() {
+        
+        List<Producto> listProducto = new ArrayList<>();
+
+        try (Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT SUM(it.cantidad) as cantidad, p.nombre, p.codigo FROM item_factura it INNER JOIN producto p ON p.codigo = it.producto_codigo GROUP BY p.codigo ORDER BY cantidad DESC")) {
+            while (rs.next()) {
+                listProducto.add(crearProductoPorNombre(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listProducto;
+    }
+
+
+    @Override
+    public List<Integer> reporteProductosCompra() {
+        List<Integer> listClientes = new ArrayList<>();
+
+        try (Connection conn = getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT SUM(it.cantidad) as cantidad, p.nombre, p.codigo FROM item_factura it INNER JOIN producto p ON p.codigo = it.producto_codigo GROUP BY p.codigo ORDER BY cantidad DESC")) {
+            while (rs.next()) {
+                listClientes.add(rs.getInt("cantidad"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listClientes;
     }
 
 

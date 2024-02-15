@@ -3,6 +3,7 @@ package com.campusland.services.impl;
 import java.util.List;
 
 import com.campusland.exceptiones.clienteexceptions.ClienteNullException;
+import com.campusland.respository.ReporteCliente;
 import com.campusland.respository.RepositoryCliente;
 import com.campusland.respository.models.Cliente;
 import com.campusland.services.ServiceCliente;
@@ -10,9 +11,11 @@ import com.campusland.services.ServiceCliente;
 public class ServiceClienteImpl  implements ServiceCliente {
 
     private final RepositoryCliente crudRepositoryCliente;
+    private final ReporteCliente reporteC;
 
-    public ServiceClienteImpl(RepositoryCliente crudRepositoryCliente){
+    public ServiceClienteImpl(RepositoryCliente crudRepositoryCliente, ReporteCliente reporteC){
          this.crudRepositoryCliente=crudRepositoryCliente;
+         this.reporteC = reporteC;
     }
 
     @Override
@@ -47,6 +50,16 @@ public class ServiceClienteImpl  implements ServiceCliente {
     public void eliminar(Cliente cliente) {
        this.crudRepositoryCliente.eliminar(cliente); 
         
+    }
+
+    @Override
+    public List<Cliente> generarReporte() {
+       return this.reporteC.reporteClientes();
+    }
+
+    @Override
+    public List<Double> generarReporteMontos() {
+       return this.reporteC.reporteClientesCompra();
     }
     
 }

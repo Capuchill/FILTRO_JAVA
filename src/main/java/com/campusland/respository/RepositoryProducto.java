@@ -6,8 +6,8 @@ import com.campusland.respository.models.Producto;
 
 public interface RepositoryProducto {
 
-     List<Producto> listar();
-
+    List<Producto> listar();
+    
     Producto porCodigo(int codigo);
 
     void crear(Producto producto);
@@ -15,6 +15,8 @@ public interface RepositoryProducto {
     void editar(Producto producto);
 
     void eliminar(Producto codigo);
+
+
     
     
 }

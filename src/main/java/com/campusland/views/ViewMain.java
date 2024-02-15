@@ -3,6 +3,8 @@ package com.campusland.views;
 import java.util.Scanner;
 
 import com.campusland.exceptiones.facturaexceptions.FacturaExceptionInsertDataBase;
+import com.campusland.respository.ReporteCliente;
+import com.campusland.respository.ReporteProducto;
 import com.campusland.respository.impl.implcliente.RepositoryClientMysqlImpl;
 import com.campusland.respository.impl.implfactura.RepositoryFacturaJsonImpl;
 import com.campusland.respository.impl.implfactura.RepositoryFacturaMysqlImpl;
@@ -22,9 +24,10 @@ import com.campusland.services.impl.ServiceimpuestoMysqlImp;
 
 public class ViewMain {
 
- 
-    public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new RepositoryClientMysqlImpl());    
-    public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoMysqlImpl());
+    public static final ReporteCliente report = new RepositoryClientMysqlImpl();
+    public static final ReporteProducto reportP = new RepositoryProductoMysqlImpl();
+    public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new RepositoryClientMysqlImpl(),report);    
+    public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoMysqlImpl(),reportP);
     public static final ServiceFactura serviceFactura = new ServiceFacturaImpl(new RepositoryFacturaMysqlImpl(),new RepositoryFacturaJsonImpl());
     public static final ServiceimpuestoMySQL serviceimpuestoMySQL = new ServiceimpuestoMysqlImp(new RepositoryImpMySQLImpl());
     public static final ServiceImpuesto serviceImpuesto = new ServiceImpuesImpl(new RepositoryImpJsonImpl());

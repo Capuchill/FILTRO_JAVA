@@ -9,10 +9,11 @@ import com.campusland.respository.models.Cliente;
 import com.campusland.respository.models.Factura;
 import com.campusland.respository.models.ItemFactura;
 import com.campusland.respository.models.Producto;
+import com.campusland.utils.Formato;
 import com.campusland.views.logic_views.GenerarDian;
 
 public class ViewFactura extends ViewMain {
-    private static final int EXIT = 4;
+    private static final int EXIT = 6;
 
     public static void startMenu() throws FacturaExceptionInsertDataBase {
 
@@ -31,6 +32,12 @@ public class ViewFactura extends ViewMain {
                 case 3:
                     GenerarDian.init();
                     break;
+                case 4:
+                    repotarClientes();
+                    break;
+                case 5:
+                    repotarProductos();
+                    break;
                 default:
                     System.out.println("Opción no valida");
                     break;
@@ -45,6 +52,8 @@ public class ViewFactura extends ViewMain {
         System.out.println("1. Crear factura.");
         System.out.println("2. Listar factura.");
         System.out.println("3. Generar DIAN.");
+        System.out.println("4. Listar clientes por compras.");
+        System.out.println("5. Listar productos mas vendidos.");
         System.out.println(EXIT+". Salir ");
         return leer.nextInt();
     }
@@ -54,6 +63,35 @@ public class ViewFactura extends ViewMain {
         for (Factura factura : serviceFactura.listar()) {
             factura.display();
             System.out.println();
+        }
+    }
+
+    private static void repotarClientes() {
+        System.out.println();
+        System.out.println("Clientes por compras:");
+        System.err.println();
+        for (int i = 0; i < serviceCliente.generarReporte().size(); i++) {
+            System.out.print("Cliente " + i + 1   + ": ");
+            System.out.println(serviceCliente.generarReporte().get(i).getFullName());
+            System.out.print("Monto acumulado: ");
+            System.out.println(Formato.formatoMonedaPesos(serviceCliente.generarReporteMontos().get(i)));
+            System.out.println();
+            
+        }
+    }
+
+
+    private static void repotarProductos() {
+        System.out.println();
+        System.out.println("Productos mas vendidos:");
+        System.err.println();
+        for (int i = 0; i < serviceProducto.generarReporte().size(); i++) {
+            System.out.println(i+1);
+            System.out.println(serviceProducto.generarReporte().get(i).getNombre());
+            System.out.print("Ventas del producto: ");
+            System.out.println(serviceProducto.generarReporteMontos().get(i));
+            System.out.println();
+            
         }
     }
 

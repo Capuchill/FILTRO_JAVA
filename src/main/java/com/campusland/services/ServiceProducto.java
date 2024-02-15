@@ -9,6 +9,10 @@ public interface ServiceProducto {
 
     List<Producto> listar();
 
+    List<Integer> generarReporteMontos();
+
+    List<Producto> generarReporte();
+
     Producto porCodigo(int codigo) throws ProductoNullException;
 
     void crear(Producto cliente);

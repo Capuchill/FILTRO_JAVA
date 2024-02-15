@@ -28,6 +28,10 @@ public class Producto {
         this.precioCompra = precioCompra;
     }
 
+    public Producto(String nombre){
+        this.nombre = nombre;
+    }
+
 
 
     public Producto(String nombre, double precioVenta, double precioCompra, String descripcion) {

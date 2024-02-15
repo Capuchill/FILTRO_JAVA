@@ -8,11 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.campusland.respository.ReporteCliente;
 import com.campusland.respository.RepositoryCliente;
 import com.campusland.respository.models.Cliente;
 import com.campusland.utils.conexionpersistencia.conexionbdmysql.ConexionBDMysql;
 
-public class RepositoryClientMysqlImpl implements RepositoryCliente {
+public class RepositoryClientMysqlImpl implements RepositoryCliente, ReporteCliente {
 
     private Connection getConnection() throws SQLException {
         return ConexionBDMysql.getInstance();
@@ -111,6 +112,39 @@ public class RepositoryClientMysqlImpl implements RepositoryCliente {
         cliente.setDireccion(rs.getString("documento"));
         return cliente;
 
+    }
+
+    @Override
+    public List<Cliente> reporteClientes() {
+        List<Cliente> listClientes = new ArrayList<>();
+
+        try (Connection conn = getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT SUM(f.total_pagar_iva) as pago, c.nombre,c.id, c.apellido , c.email, c.direccion, c.celular, c.documento FROM cliente c INNER JOIN factura f on f.cliente_id = c.id GROUP BY (c.id) ORDER BY pago DESC")) {
+            while (rs.next()) {
+                listClientes.add(crearCliente(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listClientes;
+    }
+
+    @Override
+    public List<Double> reporteClientesCompra() {
+
+        List<Double> listClientes = new ArrayList<>();
+
+        try (Connection conn = getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT SUM(f.total_pagar_iva) as pago, c.nombre,c.id, c.apellido , c.email, c.direccion, c.celular, c.documento FROM cliente c INNER JOIN factura f on f.cliente_id = c.id GROUP BY (c.id) ORDER BY pago DESC")) {
+            while (rs.next()) {
+                listClientes.add(rs.getDouble("pago"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listClientes;
     }
 
 }
